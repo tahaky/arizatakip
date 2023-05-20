@@ -1,0 +1,22 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/arizatakipdb
+    username: arizatakip
+    password: arizatakippass
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: true
+    database: postgresql
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+jwt:
+  header: Authorization
+  secret: 586E327234753778214125442A472D4B6150645367566B59703373367638792F
+  issuer: https://erp.bacca.com.tr
+  expiration: 604800
+
