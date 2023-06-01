@@ -1,6 +1,5 @@
 package com.arizatespitapiservis.model;
 
-import com.arizatespitapiservis.Security.KullaniciRole;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -14,8 +13,8 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "kullanici")
-public class Kullanici extends BaseModel {
+@Table(name = "person")
+public class Person extends BaseModel {
 
 
     private String firstname;
@@ -24,8 +23,8 @@ public class Kullanici extends BaseModel {
     private String password;
     private Boolean Active;
     @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.EAGER)
-    @JoinColumn(foreignKey = @ForeignKey(name = "kullanici_role_fk1"), referencedColumnName = "id", name = "kullanici_id")
-    private List<KullaniciRole> kullaniciRoles;
+    @JoinColumn(foreignKey = @ForeignKey(name = "person_role_fk1"), referencedColumnName = "id", name = "person_id")
+    private List<PersonRole> personRoles;
 
 
 }

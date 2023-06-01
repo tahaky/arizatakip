@@ -1,5 +1,4 @@
-package com.arizatespitapiservis.controller;
-
+package com.arizatespitapiservis.Security.AuthenticationUtils;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -10,6 +9,8 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationResponse {
-    private String tokken;
+public class AuthenticationRequest {
+
+    private String mail;
+    private String password;
 }

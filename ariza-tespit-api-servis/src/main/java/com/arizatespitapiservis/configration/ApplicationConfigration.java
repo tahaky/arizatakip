@@ -1,7 +1,6 @@
 package com.arizatespitapiservis.configration;
 
 import com.arizatespitapiservis.Security.JwtUserDetailsService;
-import com.arizatespitapiservis.repo.KullaniciRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

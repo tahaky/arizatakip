@@ -1,4 +1,5 @@
-package com.arizatespitapiservis.controller;
+package com.arizatespitapiservis.dto;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,8 +10,11 @@ import lombok.NoArgsConstructor;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class AuthenticationRequest {
+public class PersonDto {
 
-    private String mail;
+    private String firstname;
+    private String lastname;
+    private String email;
     private String password;
+
 }

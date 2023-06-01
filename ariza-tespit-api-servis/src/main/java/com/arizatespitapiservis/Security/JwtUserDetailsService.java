@@ -1,8 +1,7 @@
 package com.arizatespitapiservis.Security;
 
-import com.arizatespitapiservis.model.Kullanici;
-import com.arizatespitapiservis.repo.KullaniciRepository;
-import lombok.RequiredArgsConstructor;
+import com.arizatespitapiservis.model.Person;
+import com.arizatespitapiservis.repo.PersonRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -14,17 +13,17 @@ import java.util.Optional;
 @Service
 public class JwtUserDetailsService implements UserDetailsService {
 
-    private KullaniciRepository kullaniciRepository;
+    private PersonRepository personRepository;
 
     @Autowired
-    public JwtUserDetailsService(KullaniciRepository kullaniciRepository) {
-        this.kullaniciRepository = kullaniciRepository;
+    public JwtUserDetailsService(PersonRepository personRepository) {
+        this.personRepository = personRepository;
     }
 
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Optional<Kullanici> userList = kullaniciRepository.findByEmail(username);
+        Optional<Person> userList = personRepository.findByEmail(username);
         if (!userList.isPresent()) {
             throw new UsernameNotFoundException(String.format("No user found with username '%s'.", username));
         } else {

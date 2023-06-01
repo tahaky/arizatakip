@@ -1,7 +1,8 @@
 package com.arizatespitapiservis.Security;
 
 import com.arizatespitapiservis.enums.EnumRoles;
-import com.arizatespitapiservis.model.Kullanici;
+import com.arizatespitapiservis.model.Person;
+import com.arizatespitapiservis.model.PersonRole;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 
@@ -13,16 +14,16 @@ public final class JwtUserFactory {
 
 
 
-    public static JwtUser create(Kullanici kullanici) {
+    public static JwtUser create(Person person) {
         return new JwtUser(
-                kullanici.getId(),
-                kullanici.getFirstname(),
-                kullanici.getLastname(),
-                kullanici.getEmail(),
-                kullanici.getPassword(),
-                kullanici.getActive(),
-                kullanici.getPassword(),
-                mapToGrantedAuthority(kullanici.getKullaniciRoles())
+                person.getId(),
+                person.getFirstname(),
+                person.getLastname(),
+                person.getEmail(),
+                person.getPassword(),
+                person.getActive(),
+                person.getPassword(),
+                mapToGrantedAuthority(person.getPersonRoles())
 
         );
     }
@@ -33,7 +34,7 @@ public final class JwtUserFactory {
                 .collect(Collectors.toList());
     }
 
-    private static List<GrantedAuthority> mapToGrantedAuthority(List<KullaniciRole> roleList) {
+    private static List<GrantedAuthority> mapToGrantedAuthority(List<PersonRole> roleList) {
         List<GrantedAuthority> authorityList = new ArrayList<>();
         roleList.forEach(userRole -> authorityList.add(new SimpleGrantedAuthority(userRole.getRole().name())));
         return authorityList;

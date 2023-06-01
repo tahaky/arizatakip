@@ -6,36 +6,36 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="202212-0001-2" author="fatih.yildiz">
-        <createTable tableName="kullanici_role">
+    <changeSet id="202306-0001-2" author="tahakaya36@hotmail.com">
+        <createTable tableName="_person_role">
             <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
-                <constraints primaryKey="true" nullable="false" primaryKeyName="kullanici_role_pk"/>
+                <constraints primaryKey="true" nullable="false" primaryKeyName="person_role_pk"/>
             </column>
-            <column name="kullanici_id" type="${uuid_type}">
-                <constraints foreignKeyName="kullanici_role_fk1"
-                             referencedTableName="kullanici"
+            <column name="person_id" type="${uuid_type}">
+                <constraints foreignKeyName="person_id_role_fk1"
+                             referencedTableName="person"
                              referencedColumnNames="id"
                              nullable="false"/>
             </column>
-            <column name="kullanici_role" type="varchar2(50)">
+            <column name="person_role" type="varchar2(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="last_modified_by" type="${uuid_type}">
-                <constraints foreignKeyName="kullanici_role_fk3"
-                             referencedTableName="kullanici"
+                <constraints foreignKeyName="person_id_role_fk3"
+                             referencedTableName="person"
                              referencedColumnNames="id"/>
             </column>
             <column name="last_modified_date" type="timestamp" defaultValueComputed="current_timestamp"/>
             <column name="created_by" type="${uuid_type}">
-                <constraints foreignKeyName="kullanici_role_fk4"
-                             referencedTableName="kullanici"
+                <constraints foreignKeyName="person_id_role_fk4"
+                             referencedTableName="person"
                              referencedColumnNames="id"/>
             </column>
             <column name="created_date" type="timestamp" defaultValueComputed="current_timestamp"/>
 
         </createTable>
-        <createIndex tableName="kullanici_role" indexName="kullanici_role_kullanici_id_idx">
-            <column name="kullanici_id"></column>
+        <createIndex tableName="_person_role" indexName="_person_role_person_id_idx">
+            <column name="person_id"></column>
         </createIndex>
     </changeSet>
 </databaseChangeLog>

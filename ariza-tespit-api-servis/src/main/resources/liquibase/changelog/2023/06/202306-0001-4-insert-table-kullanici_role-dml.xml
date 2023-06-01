@@ -6,12 +6,12 @@
     xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="202212-0001-4" author="tahakaya36@hotmail.com">
-        <insert tableName="kullanici_role">
-            <column name="kullanici_id" valueComputed="(select id from kullanici where kullanici_role = 'admin')"/>
-            <column name="kullanici_role" value="ADMIN"/>
-            <column name="last_modified_by" valueComputed="(select id from kullanici where kullanici_role = 'admin')"/>
-            <column name="created_by" valueComputed="(select id from kullanici where kullanici_role = 'admin')"/>
+    <changeSet id="202306-0001-4" author="tahakaya36@hotmail.com">
+        <insert tableName="_person_role">
+            <column name="person_id" valueComputed="(select id from person where person_role = 'admin')"/>
+            <column name="person_role" value="ADMIN"/>
+            <column name="last_modified_by" valueComputed="(select id from person where person_role = 'admin')"/>
+            <column name="created_by" valueComputed="(select id from person where person_role = 'admin')"/>
             <column name="created_date" valueComputed="(SELECT CURRENT_DATE)" />
             <column name="last_modified_date" valueComputed="(SELECT CURRENT_DATE)"/>
         </insert>

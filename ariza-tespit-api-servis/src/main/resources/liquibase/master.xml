@@ -12,6 +12,6 @@
     <property name="uuid_type" value="uniqueidentifier" dbms="mssql"/>
     <property name="uuid_type" value="RAW(32)" dbms="oracle"/>
 
-    <include file="changelog/2022/2022-script.xml" relativeToChangelogFile="true"/>
+    <include file="changelog/2023/2023-script.xml" relativeToChangelogFile="true"/>
 
 </databaseChangeLog>
