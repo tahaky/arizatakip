@@ -33,10 +33,10 @@ public class BaseModel implements Serializable {
     @JsonIgnore
     private String createdBy = "ADMIN";
 
-    @CreatedDate
+  /*  @CreatedDate
     @Column(name = "create_date", updatable = false)
     @JsonIgnore
-    private String creteDate = (new Date(System.currentTimeMillis())).toString();
+    private String creteDate = (new Date(System.currentTimeMillis())).toString();*/
 
     @LastModifiedBy
     @Column(name = "last_modified_by", length = 50)
@@ -48,11 +48,7 @@ public class BaseModel implements Serializable {
     @JsonIgnore
     private Instant lastModifiedDate = Instant.now();
 
-    @Transient
-    private User createUser;
 
-    @Transient
-    private User changeUser;
 
 
 }

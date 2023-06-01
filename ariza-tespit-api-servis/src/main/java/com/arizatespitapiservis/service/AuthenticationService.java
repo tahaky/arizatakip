@@ -1,12 +1,13 @@
 package com.arizatespitapiservis.service;
 
+import com.arizatespitapiservis.Security.JwtUser;
+import com.arizatespitapiservis.Security.JwtUserFactory;
 import com.arizatespitapiservis.Security.JwtUtil;
 import com.arizatespitapiservis.controller.AuthenticationRequest;
 import com.arizatespitapiservis.controller.AuthenticationResponse;
 import com.arizatespitapiservis.dto.KullaniciDto;
-import com.arizatespitapiservis.enums.EnumRoles;
-import com.arizatespitapiservis.model.User;
-import com.arizatespitapiservis.repo.UserRepository;
+import com.arizatespitapiservis.model.Kullanici;
+import com.arizatespitapiservis.repo.KullaniciRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,38 +18,44 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class AuthenticationService {
 
-    private final UserRepository userRepository;
+    private final KullaniciRepository kullaniciRepository;
     private final PasswordEncoder passwordEncoder;
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
 
     public AuthenticationResponse register(KullaniciDto kullanici) {
 
-        var yeniKullanici = User.builder()
-                .username(kullanici.getUserName())
+        var yeniKullanici = Kullanici.builder()
+                .firstname(kullanici.getFirstname())
+                .lastname(kullanici.getLastname())
                 .password(passwordEncoder.encode(kullanici.getPassword()))
-                .mail(kullanici.getMail())
-                .role(EnumRoles.ADMIN)
+                .email(kullanici.getEmail())
+                .Active(true)
                 .build();
-        System.out.println(yeniKullanici.getId() + yeniKullanici.getUsername() + yeniKullanici.getAuthorities());
-        userRepository.save(yeniKullanici);
-        var jwt = jwtUtil.generateToken(yeniKullanici);
+        kullaniciRepository.save(yeniKullanici);
+
+
+        JwtUser jwtUser = JwtUserFactory.create(yeniKullanici);
+
+        var jwt = jwtUtil.generateToken(jwtUser);
         return AuthenticationResponse.builder()
                 .tokken(jwt)
                 .build();
     }
 
     public AuthenticationResponse authenticate(AuthenticationRequest request) {
+
         authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(
                         request.getMail(),
                         request.getPassword()
                 )
         );
-        var user = userRepository.findByMail(request.getMail())
-                .orElseThrow();
-        var jwt = jwtUtil.generateToken(user);
 
+        var user = kullaniciRepository.findByEmail(request.getMail())
+                .orElseThrow();
+        JwtUser jwtUser = JwtUserFactory.create(user);
+        var jwt = jwtUtil.generateToken(jwtUser);
         return AuthenticationResponse.builder()
                 .tokken(jwt)
                 .build();
