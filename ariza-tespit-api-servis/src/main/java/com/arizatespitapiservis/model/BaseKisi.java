@@ -3,15 +3,19 @@ package com.arizatespitapiservis.model;
 
 import com.arizatespitapiservis.enums.EnumGender;
 import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 
 @Data
 @MappedSuperclass
+@NoArgsConstructor
+@AllArgsConstructor
 @EntityListeners(AuditingEntityListener.class)
-public class BaseKisi extends BaseModel{
-
+public class BaseKisi extends BaseModel {
 
     @Column(name = "login_id", nullable = false, length = 250)
     private String loginId;
@@ -29,7 +33,8 @@ public class BaseKisi extends BaseModel{
     private String phoneNumber;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "gender",nullable = false)
+    @Column(name = "gender", nullable = false)
     private EnumGender gender;
+
 
 }

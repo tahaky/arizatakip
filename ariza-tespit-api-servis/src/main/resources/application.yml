@@ -15,6 +15,7 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
 jwt:
   header: Authorization
   secret: 586E327234753778214125442A472D4B6150645367566B59703373367638792F

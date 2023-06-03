@@ -1,29 +1,34 @@
 package com.arizatespitapiservis.controller;
 
+import com.arizatespitapiservis.dto.HomeOwnerDTO;
 import com.arizatespitapiservis.enums.ApartmentBlockEnum;
 import com.arizatespitapiservis.model.HomeOwner;
 import com.arizatespitapiservis.service.HomeOwnerSerivce;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("/homeowner")
+@RequestMapping("/api/v1/homeowner")
 @RequiredArgsConstructor
 public class HomeOwnerController {
 
     private final HomeOwnerSerivce homeOwnerSerivce;
 
 
-    @GetMapping("/getall")
+    @GetMapping("/")
     public List<HomeOwner> getAllHomeOwner() {
         return this.homeOwnerSerivce.getAllHomeOwner();
+    }
+
+    @PostMapping("/")
+    public void save(@RequestBody HomeOwnerDTO homeOwnerDTO) {
+        this.homeOwnerSerivce.save(homeOwnerDTO);
+
     }
 
 

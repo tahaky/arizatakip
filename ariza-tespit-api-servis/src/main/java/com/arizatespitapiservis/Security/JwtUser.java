@@ -10,9 +10,8 @@ import java.util.UUID;
 
 public class JwtUser implements UserDetails {
 
-    public JwtUser(UUID userId, String username, String firstname, String lastname, String email, boolean active, String password, Collection<? extends GrantedAuthority> authorities) {
+    public JwtUser(UUID userId, String firstname, String lastname, String email, boolean active, String password, Collection<? extends GrantedAuthority> authorities) {
         this.userId = userId;
-        this.username = username;
         this.firstname = firstname;
         this.lastname = lastname;
         this.email = email;
@@ -20,9 +19,7 @@ public class JwtUser implements UserDetails {
         this.password = password;
         this.authorities = authorities;
     }
-
     private final UUID userId;
-    private final String username;
     private final String firstname;
     private final String lastname;
     private final String email;
@@ -44,9 +41,10 @@ public class JwtUser implements UserDetails {
 
     @Override
     public String getUsername() {
-        return firstname;
+        return email;
     }
 
+    public UUID getId(){return userId;}
     @Override
     public boolean isAccountNonExpired() {
         return true;

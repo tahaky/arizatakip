@@ -15,8 +15,6 @@ import java.util.List;
 @Entity
 @Table(name = "person")
 public class Person extends BaseModel {
-
-
     private String firstname;
     private String lastname;
     private String email;

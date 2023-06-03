@@ -5,7 +5,7 @@ import com.arizatespitapiservis.Security.JwtUserFactory;
 import com.arizatespitapiservis.Security.JwtUtil;
 import com.arizatespitapiservis.Security.AuthenticationUtils.AuthenticationRequest;
 import com.arizatespitapiservis.Security.AuthenticationUtils.AuthenticationResponse;
-import com.arizatespitapiservis.dto.PersonDto;
+import com.arizatespitapiservis.dto.PersonDTO;
 import com.arizatespitapiservis.model.Person;
 import com.arizatespitapiservis.repo.PersonRepository;
 import lombok.RequiredArgsConstructor;
@@ -23,7 +23,7 @@ public class AuthenticationService {
     private final JwtUtil jwtUtil;
     private final AuthenticationManager authenticationManager;
 
-    public AuthenticationResponse register(PersonDto kullanici) {
+    public AuthenticationResponse register(PersonDTO kullanici) {
 
         var newPerson = Person.builder()
                 .firstname(kullanici.getFirstname())
@@ -54,6 +54,8 @@ public class AuthenticationService {
 
         var user = personRepository.findByEmail(request.getMail())
                 .orElseThrow();
+      user.setEmail(request.getMail());
+
         JwtUser jwtUser = JwtUserFactory.create(user);
         var jwt = jwtUtil.generateToken(jwtUser);
         return AuthenticationResponse.builder()

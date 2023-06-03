@@ -19,5 +19,6 @@ public interface HomeOwnerRepository extends JpaRepository<HomeOwner, UUID> {
 
     HomeOwner findByPhoneNumber(String phoneNumber);
 
+    void deleteById(UUID id);
 
 }

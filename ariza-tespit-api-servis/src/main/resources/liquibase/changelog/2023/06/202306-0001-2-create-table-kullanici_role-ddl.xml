@@ -31,7 +31,7 @@
                              referencedTableName="person"
                              referencedColumnNames="id"/>
             </column>
-            <column name="created_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+            <column name="create_date" type="timestamp" defaultValueComputed="current_timestamp"/>
 
         </createTable>
         <createIndex tableName="person_role" indexName="_person_role_person_id_idx">

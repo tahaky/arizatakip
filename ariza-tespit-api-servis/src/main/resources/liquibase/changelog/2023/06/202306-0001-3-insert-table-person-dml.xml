@@ -17,7 +17,7 @@
             <column name="last_modified_by" valueComputed="(select id from person where person_role = 'admin')"/>
             <column name="created_by" valueComputed="(select id from person where person_role = 'admin')" />
             <column name="last_modified_date" valueComputed="(SELECT CURRENT_DATE)"/>
-            <column name="created_date" valueComputed="(SELECT CURRENT_DATE)"/>
+            <column name="create_date" valueComputed="(SELECT CURRENT_DATE)"/>
         </insert>
     </changeSet>
 </databaseChangeLog>

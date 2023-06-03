@@ -8,6 +8,7 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+import org.springframework.security.core.context.SecurityContextHolder;
 
 import java.io.Serial;
 import java.io.Serializable;
@@ -31,24 +32,28 @@ public class BaseModel implements Serializable {
     @CreatedBy
     @Column(name = "created_by", nullable = false, length = 50, updatable = false)
     @JsonIgnore
-    private String createdBy = "ADMIN";
+    private UUID createdBy;
 
-  /*  @CreatedDate
+    @CreatedDate
     @Column(name = "create_date", updatable = false)
     @JsonIgnore
-    private String creteDate = (new Date(System.currentTimeMillis())).toString();*/
+    private Instant creteDate = Instant.now();
 
     @LastModifiedBy
     @Column(name = "last_modified_by", length = 50)
     @JsonIgnore
-    private String lastModifiedBy = "ADMIN";
+    private UUID lastModifiedBy;
 
     @LastModifiedDate
     @Column(name = "last_modified_date")
     @JsonIgnore
     private Instant lastModifiedDate = Instant.now();
 
+    @Transient
+    private Person createUser;
 
+    @Transient
+    private Person changeUser;
 
 
 }

@@ -35,10 +35,12 @@
                 <constraints nullable="false"/>
             </column>
             <column name="active" type="boolean"/>
+
+
             <column name="last_modified_by" type="${uuid_type}"/>
             <column name="created_by" type="${uuid_type}"/>
             <column name="last_modified_date" type="timestamp" defaultValueComputed="current_timestamp"/>
-            <column name="created_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+            <column name="create_date" type="timestamp" defaultValueComputed="current_timestamp"/>
         </createTable>
     </changeSet>
 </databaseChangeLog>
