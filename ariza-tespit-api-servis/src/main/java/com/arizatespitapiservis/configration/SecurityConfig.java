@@ -33,8 +33,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/api/**")//white list
                 .permitAll()
-               // .anyRequest()
-                //.authenticated()
+                .requestMatchers("/homeowner/**")//white list
+                .permitAll()
+                .anyRequest()
+                .authenticated()
                 .and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)

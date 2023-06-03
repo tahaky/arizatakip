@@ -8,5 +8,7 @@
     <include relativeToChangelogFile="true" file="06/202306-0001-2-create-table-kullanici_role-ddl.xml"/>
     <include relativeToChangelogFile="true" file="06/202306-0001-3-insert-table-person-dml.xml"/>
     <include relativeToChangelogFile="true" file="06/202306-0001-4-insert-table-kullanici_role-dml.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0003-1-create-table-home-owner-ddl.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0003-2-insert-table-home-owner-dml.xml"/>
 
 </databaseChangeLog>

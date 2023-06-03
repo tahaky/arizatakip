@@ -7,7 +7,7 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet id="202306-0001-2" author="tahakaya36@hotmail.com">
-        <createTable tableName="_person_role">
+        <createTable tableName="person_role">
             <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
                 <constraints primaryKey="true" nullable="false" primaryKeyName="person_role_pk"/>
             </column>
@@ -17,7 +17,7 @@
                              referencedColumnNames="id"
                              nullable="false"/>
             </column>
-            <column name="person_role" type="varchar2(50)">
+            <column name="role_name" type="varchar2(50)">
                 <constraints nullable="false"/>
             </column>
             <column name="last_modified_by" type="${uuid_type}">
@@ -34,7 +34,7 @@
             <column name="created_date" type="timestamp" defaultValueComputed="current_timestamp"/>
 
         </createTable>
-        <createIndex tableName="_person_role" indexName="_person_role_person_id_idx">
+        <createIndex tableName="person_role" indexName="_person_role_person_id_idx">
             <column name="person_id"></column>
         </createIndex>
     </changeSet>
