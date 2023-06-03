@@ -7,9 +7,9 @@
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
     <changeSet id="202306-0001-4" author="tahakaya36@hotmail.com">
-        <insert tableName="_person_role">
+        <insert tableName="person_role">
             <column name="person_id" valueComputed="(select id from person where person_role = 'admin')"/>
-            <column name="person_role" value="ADMIN"/>
+            <column name="role_name" value="ADMIN"/>
             <column name="last_modified_by" valueComputed="(select id from person where person_role = 'admin')"/>
             <column name="created_by" valueComputed="(select id from person where person_role = 'admin')"/>
             <column name="created_date" valueComputed="(SELECT CURRENT_DATE)" />

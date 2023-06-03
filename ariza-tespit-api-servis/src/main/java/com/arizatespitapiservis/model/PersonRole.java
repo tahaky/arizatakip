@@ -5,7 +5,7 @@ import jakarta.persistence.*;
 import lombok.Data;
 
 @Entity
-@Table(name = "_person_role")
+@Table(name = "person_role")
 public @Data
 class PersonRole extends BaseModel {
 
@@ -14,7 +14,7 @@ class PersonRole extends BaseModel {
     @JoinColumn(name = "person_id", nullable = false)
     private Person person;
 
-    @Column(name = "person_role", nullable = false, length = 50)
+    @Column(name = "role_name", nullable = false, length = 50)
     @Enumerated(EnumType.STRING)
     private EnumRoles role;
 }

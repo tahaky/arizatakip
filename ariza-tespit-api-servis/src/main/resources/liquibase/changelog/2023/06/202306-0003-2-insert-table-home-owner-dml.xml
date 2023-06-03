@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="202306-0003-2" author="tahakaya36@hotmail.com">
+        <insert tableName="home_owner">
+            <column name="login_id" value="tahakayaA110"/>
+            <column name="password" value="$2a$10$mXIKlU0ZJTbwXjdykxyzLe5nXIKVTCVseIyKlNR5DY5.gwZZ2z69W"/>
+            <column name="first_name" value="TAHA"/>
+            <column name="last_name" value="KAYA"/>
+            <column name="phone_number" value="+905347197634"/>
+            <column name="apartment_block" value="A"/>
+            <column name="apartment_number" value="110"/>
+            <column name="gender" value="MALE"/>
+            <column name="active" value="true"/>
+            <column name="last_modified_by" valueComputed="(select id from person where person_role = 'admin')"/>
+            <column name="created_by" valueComputed="(select id from person where person_role = 'admin')"/>
+            <column name="created_date" valueComputed="(SELECT CURRENT_DATE)"/>
+            <column name="last_modified_date" valueComputed="(SELECT CURRENT_DATE)"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
