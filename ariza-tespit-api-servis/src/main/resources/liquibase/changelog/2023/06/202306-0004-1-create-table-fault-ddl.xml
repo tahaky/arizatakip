@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="202306-0004-1" author="tahakaya36@hotmail.com">
+        <createTable tableName="fault">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="fault_pk"/>
+            </column>
+            <column name="fault_owner_id" type="${uuid_type}">
+            </column>
+            <column name="fault_name" type="varchar2(50)"/>
+            <column name="description" type="text"/>
+            <column name="fault_image1" type="blob"/>
+            <column name="fault_image2" type="blob"/>
+            <column name="fault_image3" type="blob"/>
+            <column name="last_fixed_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+            <column name="last_modified_by" type="${uuid_type}">
+            </column>
+            <column name="last_modified_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+            <column name="created_by" type="${uuid_type}">
+            </column>
+            <column name="create_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

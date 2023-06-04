@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="202306-0004-6" author="tahakaya36@hotmail.com">
+        <insert tableName="operative_faults">
+            <column name="fault_id" valueComputed="(select id from fault where fault_name = 'ELEKTRIK')"/>
+            <column name="operative_id" valueComputed="(select id from operative where task  = 'ELEKTRIK')"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>

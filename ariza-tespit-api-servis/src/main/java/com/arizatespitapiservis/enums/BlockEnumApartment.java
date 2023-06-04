@@ -1,6 +1,6 @@
 package com.arizatespitapiservis.enums;
 
-public enum ApartmentBlockEnum {
+public enum BlockEnumApartment {
     A,
     B,
     C,

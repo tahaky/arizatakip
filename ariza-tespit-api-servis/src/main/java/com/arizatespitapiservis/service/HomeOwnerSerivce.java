@@ -3,7 +3,7 @@ package com.arizatespitapiservis.service;
 
 import com.arizatespitapiservis.Security.Utils.HomeOwnerUtils;
 import com.arizatespitapiservis.dto.HomeOwnerDTO;
-import com.arizatespitapiservis.enums.ApartmentBlockEnum;
+import com.arizatespitapiservis.enums.BlockEnumApartment;
 import com.arizatespitapiservis.model.HomeOwner;
 import com.arizatespitapiservis.repo.HomeOwnerRepository;
 import lombok.RequiredArgsConstructor;
@@ -26,8 +26,8 @@ public class HomeOwnerSerivce implements IHomeOwnerSerivce {
     }
 
     @Override
-    public Optional<HomeOwner> findAllByApartmentBlock(ApartmentBlockEnum apartmentBlockEnum) {
-        return this.homeOwnerRepository.findAllByApartmentBlock(apartmentBlockEnum);
+    public Optional<HomeOwner> findAllByApartmentBlock(BlockEnumApartment blockEnumApartment) {
+        return this.homeOwnerRepository.findAllByApartmentBlock(blockEnumApartment);
     }
 
     @Override
@@ -41,8 +41,9 @@ public class HomeOwnerSerivce implements IHomeOwnerSerivce {
     }
 
     @Override
-    public void delete(UUID id) {
+    public boolean delete(UUID id) {
         this.homeOwnerRepository.deleteById(id);
+        return true;
     }
 
     @Override

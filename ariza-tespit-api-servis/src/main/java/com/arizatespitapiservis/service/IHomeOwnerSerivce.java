@@ -1,7 +1,7 @@
 package com.arizatespitapiservis.service;
 
 import com.arizatespitapiservis.dto.HomeOwnerDTO;
-import com.arizatespitapiservis.enums.ApartmentBlockEnum;
+import com.arizatespitapiservis.enums.BlockEnumApartment;
 import com.arizatespitapiservis.model.HomeOwner;
 
 import java.util.List;
@@ -13,13 +13,13 @@ public interface IHomeOwnerSerivce {
 
     List<HomeOwner> getAllHomeOwner();
 
-    Optional<HomeOwner> findAllByApartmentBlock(ApartmentBlockEnum apartmentBlockEnum);
+    Optional<HomeOwner> findAllByApartmentBlock(BlockEnumApartment blockEnumApartment);
 
     Optional<HomeOwner> findById(UUID id);
 
     HomeOwner findByPhoneNumber(String phoneNumber);
 
-    void delete(UUID id);
+    boolean delete(UUID id);
 
     void save(HomeOwnerDTO homeOwnerDTO);
 

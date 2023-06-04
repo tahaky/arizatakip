@@ -6,7 +6,7 @@
         xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
                         http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
 
-    <changeSet id="202306-0006-1" author="tahakaya36@hotmail.com">
+    <changeSet id="202306-0001-1" author="tahakaya36@hotmail.com">
         <createTable tableName="person">
             <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
                 <constraints primaryKey="true" nullable="false" primaryKeyName="kullanici_pk"/>
@@ -20,7 +20,6 @@
             <column name="person_role" type="varchar2(50)">
                 <constraints nullable="false" unique="true"/>
             </column>
-
             <column name="email" type="varchar2(100)">
                 <constraints nullable="false" unique="true"/>
             </column>

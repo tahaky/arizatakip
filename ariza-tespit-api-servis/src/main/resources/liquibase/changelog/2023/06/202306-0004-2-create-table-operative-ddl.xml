@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <changeSet id="202306-0004-2" author="tahakaya36@hotmail.com">
+        <createTable tableName="operative">
+            <column name="id" type="${uuid_type}" defaultValueComputed="${uuid_function}">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="operative_pk"/>
+            </column>
+            <column name="task" type="varchar2(50)"/>
+            <column name="login_id" type="varchar2(250)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="password" type="varchar2(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="first_name" type="varchar2(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="last_name" type="varchar2(150)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="phone_number" type="varchar2(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="apartment_block" type="varchar2(2)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="apartment_number" type="varchar2(3)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="gender" type="varchar2(20)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="active" type="boolean"/>
+            <column name="last_modified_by" type="${uuid_type}">
+            </column>
+            <column name="last_modified_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+            <column name="created_by" type="${uuid_type}">
+            </column>
+            <column name="create_date" type="timestamp" defaultValueComputed="current_timestamp"/>
+        </createTable>
+    </changeSet>
+</databaseChangeLog>

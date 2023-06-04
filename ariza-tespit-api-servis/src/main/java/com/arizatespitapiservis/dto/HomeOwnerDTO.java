@@ -1,11 +1,8 @@
 package com.arizatespitapiservis.dto;
 
-import com.arizatespitapiservis.enums.ApartmentBlockEnum;
+import com.arizatespitapiservis.enums.BlockEnumApartment;
 import com.arizatespitapiservis.enums.EnumGender;
-import com.arizatespitapiservis.model.BaseKisi;
 import lombok.*;
-
-import java.util.UUID;
 
 @Data
 @RequiredArgsConstructor
@@ -16,7 +13,7 @@ public class HomeOwnerDTO {
     private String lastname;
     private String phoneNumber;
     private EnumGender gender;
-    private ApartmentBlockEnum apartmentBlock;
+    private BlockEnumApartment apartmentBlock;
     private String apartmentNumber;
 
 

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+    <changeSet id="202306-0004-3" author="tahakaya36@hotmail.com">
+        <insert tableName="fault">
+            <column name="description"
+                    value="in aliquam sem fringilla ut morbi tincidunt augue interdum velit euismod in pellentesque massa
+                     placerat duis ultricies lacus sed turpis tincidunt id aliquet risus feugiat in ante metus dictum at
+                      tempor commodo ullamcorper a lacus vestibulum sed arcu non odio euismod lacinia at quis risus sed 
+                      vulputate odio ut enim blandit volutpat maecenas volutpat blandit aliquam etiam erat velit scelerisque 
+                      in dictum non consectetur a erat nam at lectus urna duis convallis convallis tellus id interdum velit laoreet
+                       id donec ultrices tincidunt arcu non sodales neque sodales ut etiam sit amet nisl purus in mollis nunc sed id 
+                       semper risus"/>
+            <column name="fault_name" value="ELEKTRIK"/>
+            <column name="fault_owner_id" valueComputed="(select id from person where person_role = 'admin')"/>
+            <column name="last_fixed_date" valueComputed="(SELECT CURRENT_DATE)"/>
+            <column name="created_by" valueComputed="(select id from person where person_role = 'admin')"/>
+            <column name="create_date" valueComputed="(SELECT CURRENT_DATE)"/>
+            <column name="last_modified_date" valueComputed="(SELECT CURRENT_DATE)"/>
+        </insert>
+    </changeSet>
+</databaseChangeLog>
+

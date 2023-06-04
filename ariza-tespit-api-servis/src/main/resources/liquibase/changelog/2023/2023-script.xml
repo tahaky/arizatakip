@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <databaseChangeLog
-    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
 
     <include relativeToChangelogFile="true" file="06/202306-0001-1-create-table-person-ddl.xml"/>
     <include relativeToChangelogFile="true" file="06/202306-0001-2-create-table-kullanici_role-ddl.xml"/>
@@ -10,5 +10,12 @@
     <include relativeToChangelogFile="true" file="06/202306-0001-4-insert-table-kullanici_role-dml.xml"/>
     <include relativeToChangelogFile="true" file="06/202306-0003-1-create-table-home-owner-ddl.xml"/>
     <include relativeToChangelogFile="true" file="06/202306-0003-2-insert-table-home-owner-dml.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0004-1-create-table-fault-ddl.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0004-2-create-table-operative-ddl.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0004-3-insert-table-fault-dml.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0004-4-insert-table-operative-dml.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0004-5-create-table-operative-faults-ddl.xml"/>
+    <include relativeToChangelogFile="true" file="06/202306-0004-6-insert-table-operative-faults-dml.xml"/>
+
 
 </databaseChangeLog>
